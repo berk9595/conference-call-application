@@ -226,11 +226,6 @@ function AntMedia() {
         });
       }
       if (!cam.find((m) => m.eventStreamId === eventStreamId)) {
-        console.log(
-          "tetkektektekktektektkektektketkekte",
-          notificationEvent,
-          cam
-        );
         toggleSetCam({
           eventStreamId: eventStreamId,
           isCameraOn: notificationEvent.camera,
