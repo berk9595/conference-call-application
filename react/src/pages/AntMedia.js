@@ -144,7 +144,6 @@ function AntMedia() {
   }
 
   function handleNotificationEvent(obj) {
-   
     var notificationEvent = JSON.parse(obj.data);
     if (notificationEvent != null && typeof notificationEvent == "object") {
       var eventStreamId = notificationEvent.streamId;
@@ -259,8 +258,6 @@ function AntMedia() {
 
   function updateStatus(obj) {
     if (roomName !== obj) {
-      console.log("updateStatusupdateStatusupdateStatus", mic);
-
       handleSendNotificationEvent("UPDATE_STATUS", myLocalData.streamId, {
         mic: !!mic.find((c) => c.eventStreamId === "localVideo")?.isMicMuted,
         camera: !!cam.find((c) => c.eventStreamId === "localVideo")?.isCameraOn,
