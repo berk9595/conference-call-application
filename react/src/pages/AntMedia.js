@@ -51,8 +51,18 @@ function AntMedia() {
   ]);
   function pinVideo(id) {
     if (pinnedVideoId === id) {
+      let requestedMediaConstraints = {
+        width: 320,
+        height: 240,
+      };
+      antmedia.applyConstraints(id, requestedMediaConstraints);
       setPinnedVideoId(null);
     } else {
+      let requestedMediaConstraints = {
+        width: 640,
+        height: 480,
+      };
+      antmedia.applyConstraints(id, requestedMediaConstraints);
       setPinnedVideoId(id);
     }
   }

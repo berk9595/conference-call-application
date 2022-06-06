@@ -215,8 +215,8 @@ var sdpConstraints = {
 
 var mediaConstraints = {
   video: {
-    width: { max: 640 },
-    height: { max: 480 },
+    width: { max: 320 },
+    height: { max: 240 },
   },
   audio: true,
 };
