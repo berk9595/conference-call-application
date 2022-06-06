@@ -229,8 +229,25 @@ function checkTrackStatus(streamIdList, publishStreamId) {
     }
   });
 }
+let websocketURL = process.env.REACT_APP_WEBSOCKET_URL;
 
-const websocketURL = process.env.REACT_APP_WEBSOCKET_URL;
+if (!websocketURL) {
+  const appName = window.location.pathname.substring(
+    0,
+    window.location.pathname.lastIndexOf("/") + 1
+  );
+  const path =
+    window.location.hostname +
+    ":" +
+    window.location.port +
+    appName +
+    "websocket";
+  websocketURL = "ws://" + path;
+
+  if (window.location.protocol.startsWith("https")) {
+    websocketURL = "wss://" + path;
+  }
+}
 // let streamsList;
 
 const webRTCAdaptor = new WebRTCAdaptor({
