@@ -1305,7 +1305,10 @@ export class MediaManager {
    * To change media constraints on the fly
    *
    */
-  applyConstraints(newConstaints) {
-    return this.videoTrack?.applyConstraints(newConstaints);
+  applyConstraints(streamId, newConstaints) {
+    var videoTrackSender = this.getSender(streamId, "video");
+    return videoTrackSender.track.applyConstraints(newConstaints).catch((e) => {
+      console.error("Error while applying capture constraints:", e.message);
+    });
   }
 }
